@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet">ss
 
     <style>
      
@@ -882,21 +882,6 @@
 
             <!-- Add more... -->
         </div>
-<!-- 
-        Submission Section -->
-        <!-- <div id="submission">
-            <h2>For Techfest Judges</h2>
-            <p>IIT Bombay Techfest 2025 Photography Contest</p>
-            <ul>
-                <li><strong>Artist:</strong> Abhishek Gupta</li>
-                <li><strong>Category:</strong> Nature Photography & Vlogger</li>
-                <li><strong>Bio:</strong> Blending photography with the beauty of nature’s creations, capturing moments
-                    that feel alive, meaningful, expressive imagery”.</li>
-                <li><strong>Contact:</strong> abhishekgupta0164@gmail.com</li>
-            </ul>
-            <p style="font-style: italic;">High-res photographs files, Excited to showcase my skills at Techfest!</p>
-        </div>
-    </section> --> 
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
@@ -990,12 +975,6 @@
                 btn.classList.add('active');
                 const category = btn.getAttribute('data-category').toLowerCase(); // Make lowercase for consistency
 
-                // Hide all items first
-                // items.forEach(item => {
-                //     item.classList.remove('show');
-                //     item.style.display = 'none'; // Hide non-matching completely
-                // });
-
                 // Show matching items with animation
                 items.forEach((item, index) => {
                     const itemCategory = item.getAttribute('data-category').toLowerCase(); // Make lowercase
@@ -1005,16 +984,7 @@
                             item.style.display = 'block'; // Show it
                             item.classList.add('show'); // Animate in
                         }, index * 100); // Staggered animation
-                        // const category = btn.getAttribute('data-category');
-                        // filterBtns.forEach(b => b.classList.remove('active'));
-                        // btn.classList.add('active');
-                        // const category = btn.getAttribute('data-category');
-                        // animate photo in out
-                        // items.forEach((item, index) => {
-                        //     item.classList.remove('show');
-                        //     if (category === 'all' || item.getAttribute('data-category') === category) {
-                        //         setTimeout(() => item.classList.add('show'), index * 100);  // staggered animation
-                        //     }
+                       
                     }
                 });
             });
