@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <script src="portfolio.js"></script> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABHISHEK GUPTA- Photography Portfolio for Techfest IIT Bombay</title>
+    <meta name="description" content="Entry for Techfest 2025 International Photography Contest - Innovative Visuals">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+     
+        :root {
+            --primary: #0f0f1a;
+            --accent: #e94560;
+            --light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            padding: 18px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        header {
+          /* height: 80vh; */
+            background: linear-gradient(rgba(144, 79, 144, 0.966), rgba(0, 0, 0, 0.75)),
+                url('https://images.unsplash.com/photo-1558618047-3c8c76ca3e91?w=1920') center/cover no-repeat;
+            /* Tech-themed placeholder */
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:normal;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            margin-bottom: 80px;
+        }
+        header h1:hover {
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.7);
+            transition: all 0.4s ease;
+            
+        }
+        header p {
+            font-size: 5.5rem;
+        }
+        header p:hover {
+            text-decoration-color: #ff002b;
+            text-shadow: 0 0 15px rgba(237, 37, 70, 0.743);
+            transition: all 0.4s ease;
+        }
+        /* ===== HERO ANIMATION GRAPHICS ===== */
+
+.hero {
+    position: relative;
+    height: 55vh;
+    overflow: hidden;
+}
+/* ===== SCROLL FOCUS EFFECT ===== */
+
+.focus-text {
+    filter: blur(3px);
+    opacity: 0.65;
+    transform: scale(0.98);
+    transition: all 0.8s ease;
+}
+
+.focus-text.focus-active {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Highlight glow */
+.focus-text.focus-active h1 {
+    text-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
+}
+
+.focus-text.focus-active p {
+    color: #ffffff;
+}
+
+
+/* Animated gradient overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(233, 69, 96, 0.35),
+        rgba(15, 15, 26, 0.8),
+        rgba(233, 69, 96, 0.35)
+    );
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
+    z-index: 1;
+}
+
+/* Floating particles */
+.hero-particles::before,
+.hero-particles::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(2px 2px at 80% 40%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 50% 70%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 30% 80%, #fff, transparent);
+    opacity: 0.3;
+    animation: floatParticles 25s linear infinite;
+    z-index: 2;
+}
+
+.hero-particles::after {
+    animation-duration: 40s;
+    opacity: 0.2;
+}
+
+/* Text animation */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    animation: fadeUp 1.6s ease forwards;
+}
+
+.hero-content h1 {
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    animation: fadeUp 1.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* ===== KEYFRAMES ===== */
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatParticles {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+        /* About Section */
+#about {
+    padding: 120px 20px;
+    text-align: center;
+    max-width: 3500px;
+    margin: 0 auto;
+
+    background:
+        radial-gradient(circle at top, rgba(130, 8, 28, 0.219), transparent 100%),
+        linear-gradient(#8b0d46, #43004f);
+        backdrop-filter: blur(10px);
+
+}
+#about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.2rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+#about p {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+#about h3 {
+    max-width:1200px;
+    margin: 0 auto;
+    font-size: 2.4rem;
+} 
+/* ===== ABOUT INTRO SECTION ===== */
+
+.about-intro {
+    padding: 120px 20px;
+    background: radial-gradient(
+        circle at top,
+        rgba(233, 69, 96, 0.12),
+        #0a0a12 60%
+    );
+    text-align: center;
+}
+
+.intro-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    color: var(--accent);
+    margin-bottom: 40px;
+}
+
+.intro-highlight {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #f1f1f1;
+}
+
+.intro-highlight span {
+    color: var(--accent);
+}
+
+.intro-text {
+    font-size: 1.95rem;
+    line-height: 1.7;
+    color: #cfcfcf;
+    margin-bottom: 25px;
+}
+
+
+        /* Skills Section */
+        #skills {
+            padding: 120px 20px;
+            background: #280546;
+            font-size: 5.2rem;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5.2rem;
+            color: var(--accent);
+            margin-bottom: 60px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 3fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 18px;
+            padding: 30px 25px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            min-height: 220px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.25);
+            cursor: pointer;
+                }
+
+        .skill-card h3 {
+            color: var(--accent);
+            font-size: 2.8rem;
+            min-width: 230px;
+
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: #ccc;
+            font-size: 1.95rem;
+            line-height: 1.5;
+        }
+          /* Submission Section */
+        #submission {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(112, 3, 70, 0.654);
+            border-radius: 15px;
+            margin: 40px auto;
+            font-size: 30px;
+            max-width: 1800px;
+        }
+
+        #submission h2 {
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        #submission ul {
+            text-align: left;
+
+            max-width: 1000px;
+            margin: 20px auto;
+            padding-left: 20px;
+        }
+        /* Gallery Section */
+        #photography {
+            padding: 100px 40px 140px;
+            background: #01183a;
+            font-size: 1.2rem;
+        }
+
+        #photography h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 5.8rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        /* Category Filters */
+        .filters {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: #ccc;
+            border: 2px solid #444;
+            padding: 10px 25px;
+            margin: 0 8px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 3rem;
+            transition: all 0.4s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+
+        /* Gallery Grid */
+        .gallery {                        
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+            max-width: 1500px;
+            margin: 0 auto;
+        
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: auto;
+            /*allow natural image height */
+            /* aspect-ratio: 16 / 9; /* Force 16:9 landscape ratio */
+            width: 100%;
+            touch-action: manipulation;
+            /* Fill grid cell */
+        }
+        .photo-item:hover{
+              transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px #ff002b;
+        }
+
+        .photo-item.show {
+            opacity: 1;
+          transform: translateY(0);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Cover to fill 16:9 without distortion, crop if needed */
+            display: block;
+            /*Remove any inline spacing */
+            transition: transform 0.8s;
+            
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 40px 20px 20px;
+            transform: translateY(30px);
+            opacity: 0;
+            font-style: italic;
+            font-size: 25px;
+            transition: all 0.5s;
+        }
+
+        .photo-item:hover .caption {
+            opacity: 1;;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* Lightbox - Preserve Original Ratio */
+        .lightbox img {
+            max-width: 94%;
+            max-height: 94vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            /* Full image visible, no distortion */
+            border: 10px solid white;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+        }
+
+        /* .lightbox img {
+            max-width: 94%;
+            max-height: 94vh;
+            border: 10px solid white;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+        } */
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 45px;
+            color: white;
+            font-size: 60px;
+            cursor: pointer;
+            font-weight: 100;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            background: #0a0a12;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 10px;
+            }
+
+            .filter-btn {
+                margin: 0 6px 10px;
+            }
+        }
+    </style>
+</head>
+<head><link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#photography">Gallery</a></li>
+            <li><a href="#submission">Submission</a></li>
+        </ul>
+    </nav>
+
+    <header>
+       <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+
+    <div class="hero-content focus-text">
+        <h1>ABHISHEK GUPTA</h1>
+        <p>Techfest IIT Bombay 2025 | Photography Contestant</p>
+    </div>
+</header>
+
+
+    </header>
+
+    <section id="about">
+
+        <h2>About Me & My Work</h2>
+
+        <p class="intro-highlight">
+            I’m <span>Abhishek Gupta</span>, A student of B.tech CS 2nd year student & A passionate photographer and visual storyteller, Vlogger,
+            capturing moments where <strong>technology, nature, and human emotion</strong> intersect.
+        </p>
+
+        <p class="intro-text">
+            My journey in photography began with curiosity — observing light, shadows,
+            and patterns that often go unnoticed. Over time, this curiosity evolved into
+            a creative pursuit focused on storytelling through images.
+            Through street, nature, architecture, and experimental photography,
+            I aim to freeze moments that feel alive, meaningful, and 
+            futuristic — aligning with Techfest IIT Bombay’s vision of innovation and creativity.
+        </p>
+        <p>Exploring the intersection of technology, nature, culture, and light through photography. I capture
+            innovative moments for Techfest's theme of "Future Visions."</p>
+        <p>
+        <h3>Each image reflects my passion for visual storytelling and technical excellence.</h3>
+        </p>
+
+    </section>
+    <section id="skills">
+        <h2>My Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card ">
+                
+                <h3>Photography</h3>
+                <p>Nature , Landscape, Street, Portrait, Architecture photography with strong visual storytelling.
+                </p>
+            </div>
+
+            <div class="skill-card ">
+                <h3>Photo Editing</h3>
+                <p>Advanced color grading, retouching, light correction using PhotoEditors & Photoshop.</p>
+            </div>
+
+            <div class="skill-card ">
+                <h3>Visual Storytelling</h3>
+                <p>Creating emotion-driven images that convey mood, depth, and narrative.</p>
+            </div>
+
+            <div class="skill-card  ">
+                <h3>My ToolBox</h3>
+                <p>I use DaVinciResolve, CapCut, Canva, Edits and Photoshop. Build Strong understanding of framing, perspective, natural & artificial lighting.</p>
+            </div>
+
+            <div class="skill-card ">
+                <h3>Videography & Reels</h3>
+                <p>Short cinematic reels and creative edits optimized for social media.</p>
+            </div>
+
+            <div class="skill-card ">
+                <h3>Technical Skills</h3>
+                <p>HTML, CSS, JavaScript , C++ , Customization for creation & digital presentation.</p>
+            </div>
+
+        </div>
+    </section>
+    
+        <!-- Submission Section -->
+        <div id="submission">
+            <h2>For Techfest Judges</h2>
+            <p>IIT Bombay Techfest 2025 Photography Contest</p>
+            <ul>
+                <li><strong>Artist:</strong> Abhishek Gupta</li>
+                <li><strong>Category:</strong> Nature Photography & Vlogger</li>
+                <li><strong>Bio:</strong> Blending photography with the beauty of nature’s creations, capturing moments
+                    that feel alive, meaningful, expressive imagery”.</li>
+                <li><strong>  <i class="fa-brands fa-linkedin"></i> Linkdin:</strong> <a href="https://www.linkedin.com/in/abhishek-gupta-43a9a437b" target="_blank" rel="noopener">
+            linkedin.com/in/abhishek-gupta</a></li>
+                 <li><strong>  <i class="fa-brands fa-instagram"></i> Instagram:</strong> <a href="https://www.instagram.com/abhishek._.016" target="_blank" rel="noopener">
+            instagram.com/abhishek._.016</a></li>
+                <li><strong>  <i class="fa-solid fa-envelope"></i> Contact E.mail:</strong><a href="mailto:abhishekgupta0164@gmail.com" target="_blank" rel="noopener">
+                     abhishekgupta0164@gmail.com</a></li>
+            </ul>
+            <p style="font-style: italic;">High-res photographs files, Excited to showcase my skills at Techfest!</p>
+        </div>
+    </section>
+
+
+    <section id="photography">
+        <h2>Gallery</h2>
+
+        <!-- Category Filters -->
+        <div class="filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="nature">Nature</button>
+            <button class="filter-btn" data-category="architecture">Architecture</button>
+            <button class="filter-btn" data-category="street">Street</button>
+            <button class="filter-btn" data-category="portrait">Portrait</button>
+            <button class="filter-btn" data-category="experimental">Experimental</button>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery" id="gallery">
+            <!-- Your photos here - replace links as before -->
+            <div class="photo-item  show " data-category="nature" onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7172Ve.md.jpg" alt="Lion VS Eagle in Sky">
+                <div class="caption">
+                    <h3>Golden Magical Fight</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEaaI.jpg')">
+                <img src="https://iili.io/f7VEaaI.md.jpg" alt="Mountains view">
+                <div class="caption">
+                    <h3>Mountains View</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEB3B.jpg')">
+                <img src="https://iili.io/f7VEB3B.md.jpg" alt="Sunrise in Mountains">
+                <div class="caption">
+                    <h3>Sunrise in Mountains</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VE2Qj.jpg')">
+                <img src="https://iili.io/f7VE2Qj.md.jpg" alt="Sunset">
+                <div class="caption">
+                    <h3>Sunset view </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEACv.jpg')">
+                <img src="https://iili.io/f7VEACv.md.jpg" alt="Tree Beyond Sunset">
+                <div class="caption">
+                    <h3>Asthetic view of Tree Beyond Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEjF2.jpg')">
+                <img src="https://iili.io/f7VEjF2.md.jpg" alt="Red Sun">
+                <div class="caption">
+                    <h3>Sun looks like Red Tommato </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEvwu.jpg')">
+                <img src="https://iili.io/f7VEvwu.md.jpg" alt="Tower in Sky">
+                <div class="caption">
+                    <h3> Tower in alone Sky</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEi8P.jpg')">
+                <img src="https://iili.io/f7VEi8P.md.jpg" alt="Owl">
+                <div class="caption">
+                    <h3>Owl Finded Peace</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7VEmMv.jpg')">
+                <img src="https://iili.io/f7VEmMv.md.jpg" alt="Alone Tree ">
+                <div class="caption">
+                    <h3>A Tree with An Owl </h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XzDDN.jpg')">
+                <img src="https://iili.io/f7XzDDN.md.jpg" alt="Red Sunset">
+                <div class="caption">
+                    <h3>Red Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XxBkl.jpg')">
+                <img src="https://iili.io/f7XxBkl.md.jpg" alt="Scattered Red Clouds">
+                <div class="caption">
+                    <h3>Scattered Red Clouds</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7Xz7Pn.jpg')">
+                <img src="https://iili.io/f7Xz7Pn.md.jpg" alt="Mirror Sunset">
+                <div class="caption">
+                    <h3>Mirror Sunset</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIKOl.jpg')">
+                <img src="https://iili.io/f7XIKOl.md.jpg" alt="FlashBack Clouds">
+                <div class="caption">
+                    <h3>FlashBack of Red Rays from Clouds</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XI6I2.jpg')">
+                <img src="https://iili.io/f7XI6I2.md.jpg" alt="Railways">
+                <div class="caption">
+                    <h3>Railways </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XIEga.jpg')">
+                <img src="https://iili.io/f7XIEga.md.jpg" alt="Behind Tree Sunset">
+                <div class="caption">
+                    <h3>Behind Tree Sunset</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZbcb.jpg')">
+                <img src="https://iili.io/f7XZbcb.md.jpg" alt="Tower Decors The Sky ">
+                <div class="caption">
+                    <h3>Tower Decors The Sky </h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQumN.jpg')">
+                <img src="https://iili.io/f7XQumN.md.jpg" alt="Sky with Flower">
+                <div class="caption">
+                    <h3>Sky with Flower</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XQhQ9.jpg')">
+                <img src="https://iili.io/f7XQhQ9.md.jpg" alt="Colourfull MetroStation">
+                <div class="caption">
+                    <h3>Colourfull MetroStation</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="portrait" onclick="openLightbox('https://iili.io/f7XQ8kQ.jpg')">
+                <img src="https://iili.io/f7XQ8kQ.md.jpg" alt="Pushpa ">
+                <div class="caption">
+                    <h3>Pushpa The Rise</h3>
+                </div>
+            </div>
+
+            <div class="photo-item show" data-category="nature" onclick="openLightbox('https://iili.io/f7XZJGn.jpg')">
+                <img src="https://iili.io/f7XZJGn.md.jpg" alt="Birds Flock">
+                <div class="caption">
+                    <h3>With Bird Flock</h3>
+                </div>
+            </div>
+
+
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7GjnVa.md.jpg" alt="Lotus Temple, Delhi">
+                <div class="caption">
+                    <h3>Structure of Lotus</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7GQyp1.md.jpg" alt="Lotus Temple, Delhi">
+                <div class="caption">
+                    <h3> Lotus</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7Gp8rb.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3> Taj Mahal</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7M2EE7.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7MVRsf.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Door Inside Door</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7Mhj1f.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj Front Side</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7MtP6J.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>The White Taj Door</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7VnVwX.md.jpg" alt="Taj Mahal, Agra">
+                <div class="caption">
+                    <h3>Taj in Black Cover</h3>
+                </div>
+            </div>
+            <div class="photo-item show" data-category="architecture"
+                onclick="openLightbox('https://iili.io/f7172Vef.jpg')">
+                <img src="https://iili.io/f7VIhe2.md.jpg" alt="Star in architecture">
+                <div class="caption">
+                    <h3>Star in Architecture</h3>
+                </div>
+            </div>
+
+
+            <!-- Add more... -->
+        </div>
+<!-- 
+        Submission Section -->
+        <!-- <div id="submission">
+            <h2>For Techfest Judges</h2>
+            <p>IIT Bombay Techfest 2025 Photography Contest</p>
+            <ul>
+                <li><strong>Artist:</strong> Abhishek Gupta</li>
+                <li><strong>Category:</strong> Nature Photography & Vlogger</li>
+                <li><strong>Bio:</strong> Blending photography with the beauty of nature’s creations, capturing moments
+                    that feel alive, meaningful, expressive imagery”.</li>
+                <li><strong>Contact:</strong> abhishekgupta0164@gmail.com</li>
+            </ul>
+            <p style="font-style: italic;">High-res photographs files, Excited to showcase my skills at Techfest!</p>
+        </div>
+    </section> --> 
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <img src="" id="lightbox-img" alt="Full view">
+    </div>
+
+    <footer>
+        <p>© 2025 Abhishek Gupta | Part of Techfest IIT Bombay </p>
+    </footer>
+    <script>
+        // Super clean lightbox — just click → instantly see full high-res photo
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+
+            const lightbox = document.getElementById('lightbox');
+            lightbox.innerHTML = `
+        <span class="close" onclick="closeLightbox()">×</span>
+        <img src="${src}" style="max-width:98%; max-height:98vh; border-radius:12px;">
+      `;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close with Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") closeLightbox();
+        });
+        // Long press detection for mobile (hold for 500ms to open lightbox)
+        let pressTimer;
+        const photoItems = document.querySelectorAll('.photo-item img');
+
+        photoItems.forEach(img => {
+            // Click/tap event (already handled by onclick)
+            img.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent any default behavior
+                const src = this.parentElement.getAttribute('data-full-src') || this.src.replace('.md.jpg', 'f.jpg'); // Use high-res
+                openLightbox(src);
+            });
+
+            // Long press for touch devices
+            let startTime;
+            img.addEventListener('touchstart', function (e) {
+                startTime = Date.now();
+                pressTimer = setTimeout(() => {
+                    e.preventDefault();
+                    const src = this.parentElement.getAttribute('data-full-src') || this.src.replace('.md.jpg', 'f.jpg');
+                    openLightbox(src);
+                }, 500); // 500ms hold to trigger
+            });
+
+            img.addEventListener('touchend', function (e) {
+                clearTimeout(pressTimer);
+            });
+
+            img.addEventListener('touchmove', function (e) {
+                clearTimeout(pressTimer);
+            });
+
+            // For desktop long press (mousedown/up)
+            img.addEventListener('mousedown', function (e) {
+                startTime = Date.now();
+                pressTimer = setTimeout(() => {
+                    e.preventDefault();
+                    const src = this.parentElement.getAttribute('data-full-src') || this.src.replace('.md.jpg', 'f.jpg');
+                    openLightbox(src);
+                }, 500);
+            });
+
+            document.addEventListener('mouseup', function (e) {
+                clearTimeout(pressTimer);
+            });
+        });
+
+        // Gallery filter (same as before)
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.photo-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.getAttribute('data-category').toLowerCase(); // Make lowercase for consistency
+
+                // Hide all items first
+                // items.forEach(item => {
+                //     item.classList.remove('show');
+                //     item.style.display = 'none'; // Hide non-matching completely
+                // });
+
+                // Show matching items with animation
+                items.forEach((item, index) => {
+                    const itemCategory = item.getAttribute('data-category').toLowerCase(); // Make lowercase
+                    item.classList.remove('show');
+                    if (category === 'all' || itemCategory === category) {
+                        setTimeout(() => {
+                            item.style.display = 'block'; // Show it
+                            item.classList.add('show'); // Animate in
+                        }, index * 100); // Staggered animation
+                        // const category = btn.getAttribute('data-category');
+                        // filterBtns.forEach(b => b.classList.remove('active'));
+                        // btn.classList.add('active');
+                        // const category = btn.getAttribute('data-category');
+                        // animate photo in out
+                        // items.forEach((item, index) => {
+                        //     item.classList.remove('show');
+                        //     if (category === 'all' || item.getAttribute('data-category') === category) {
+                        //         setTimeout(() => item.classList.add('show'), index * 100);  // staggered animation
+                        //     }
+                    }
+                });
+            });
+        });
+
+        // Load animation
+        window.onload = () => {
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.display = 'block';
+                    item.classList.add('show');
+                }, index * 120);
+            });
+        };
+
+    </script>
+    <script src="portfolio.js"></script>
+</body>
+
+</html>
