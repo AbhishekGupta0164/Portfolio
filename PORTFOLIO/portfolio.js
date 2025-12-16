@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("mouseup", cancelPress);
         item.addEventListener("mouseleave", cancelPress);
     });
-
+    
     /* =========================
        HEADER SCROLL FOCUS
     ========================= */
@@ -89,24 +89,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Lightbox
+// LIGHTBOX FUNCTIONS
 function openLightbox(src) {
     const lightbox = document.getElementById("lightbox");
     const img = document.getElementById("lightbox-img");
+    const spinner = document.getElementById("lightbox-spinner");
 
     if (!lightbox || !img) return;
 
-    img.src = src;
+    img.src = ''; // Reset
+    img.classList.remove('loaded');
+    if (spinner) spinner.style.display = 'block'; // Show spinner
+    img.onerror = () => { // Fallback
+        img.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
+        if (spinner) spinner.style.display = 'none';
+    };
+    img.onload = () => {
+        if (spinner) spinner.style.display = 'none';
+        img.classList.add('loaded');
+    };
+    img.src = src; // Trigger load
     lightbox.style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+    const spinner = document.getElementById("lightbox-spinner");
+
     if (!lightbox) return;
 
     lightbox.style.display = "none";
     document.body.style.overflow = "auto";
+    if (spinner) spinner.style.display = 'none';
+    if (img) img.classList.remove('loaded');
 }
 
 document.addEventListener("keydown", e => {
