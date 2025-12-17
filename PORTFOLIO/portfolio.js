@@ -64,7 +64,41 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("mouseup", cancelPress);
         item.addEventListener("mouseleave", cancelPress);
     });
-    
+    // Filters (full logic: hide non-matches, stagger show matches)
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.dataset.category.toLowerCase();v
+
+                // Hide all first
+                items.forEach(item => {
+                    item.classList.remove('show');
+                    item.style.display = 'none';
+                });
+
+                // Show matches with stagger
+                items.forEach((item, index) => {
+                    const itemCategory = item.dataset.category.toLowerCase();
+                    if (category === 'all' || itemCategory === category) {
+                        setTimeout(() => {
+                            item.style.display = 'block';
+                            item.classList.add('show');
+                        }, index * 100);
+                    }
+                });
+            });
+        });
+
+        // Initial load: Show all with stagger
+        items.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.display = 'block';
+                item.classList.add('show');
+            }, index * 120);
+        });
+    }
     /* =========================
        HEADER SCROLL FOCUS
     ========================= */
@@ -89,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
 // LIGHTBOX FUNCTIONS
 function openLightbox(src) {
     const lightbox = document.getElementById("lightbox");
@@ -111,7 +146,7 @@ function openLightbox(src) {
     img.src = src; // Trigger load
     lightbox.style.display = "flex";
     document.body.style.overflow = "hidden";
-}
+} 
 
 function closeLightbox() {
     const lightbox = document.getElementById("lightbox");
